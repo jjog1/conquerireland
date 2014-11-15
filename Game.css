@@ -1,0 +1,38 @@
+#notificationbox{
+border-style:solid;
+overflow-y:scroll;
+overflow-x: none;
+width:500px;
+max-width:500px;
+
+height:100px;
+max-height:100px;
+background-color:lightgrey;
+}
+
+.Warning
+{
+	color:red;
+}
+
+.Update
+{
+	color:blue;
+}
+
+.Positive
+{
+	color:green;
+}
+
+.hidden
+{
+	display:none;
+}
+
+#content{
+	max-width:800px;
+	width:800px;
+	margin-right:auto;
+	margin-left:auto;
+	}

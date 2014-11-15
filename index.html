@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>	
+		<link rel="stylesheet" type="stylesheet/css" href="Game.css" />
+	</head>
+	<body>
+		<div id="menu></div>
+		
+		<div id="content">
+		<button onclick="ActiveCounty('Dublin')">Dublin</button>
+		<button onclick="ActiveCounty('Cork')">Cork</button>
+		<button onclick="ActiveCounty('Kerry')">Kerry</button>
+		<table>
+			<tr>
+				<td>Total Population</td>
+				<td />
+				<td id="totalPopulation"></td>
+			</tr>
+			<tr>
+				<td>Max Population</td>
+				<td />
+				<td id="maxPopulation"></td>
+			</tr>
+			<tr>
+				<td>Unassigned People</td>
+				<td />
+				<td><span id="unassignedpeople"></span></td>
+			</tr>
+			<tr>
+				<th />
+				<th>Resource</th>
+				<th>Quantity</th>
+				<th>Workers</th>
+			<tr>
+				<td><img src="food0icon.png" height="50px" width="50px"/></td>
+				<td>Food</td>
+				<td><span id="food"></span></td>
+				<td><span id="assignedfood"></span></td>
+				
+				<td><button onclick="UnassignPersonActiveCounty('food',1)">-1</button></td>
+				<td><button onclick="AssignPersonActiveCounty('food',1)">+1</button></td>
+				<td><button onclick="AssignPersonActiveCounty('food',5)">+5</button></td>
+				<td><button onclick="AssignPersonActiveCounty('food',10)">+10</button></td>
+				<td><button onclick="AssignPersonActiveCounty('food',100)">+100</button></td>
+				<td><button onclick="AssignPersonActiveCounty('food',1000)">+1000</button></td>
+			</tr>
+			<tr>
+				<td><img src="wood.jpg" height="50px" width="50px"/></td>
+				<td>Wood</td>
+				<td><span id="wood"></span></td>
+				<td><span id="assignedwood"></span></td>
+				
+				<td><button onclick="UnassignPersonActiveCounty('wood',1)">-1</button></td>
+				<td><button onclick="AssignPersonActiveCounty('wood',1)">+1</button></td>
+				<td><button onclick="AssignPersonActiveCounty('wood',5)">+5</button></td>
+				<td><button onclick="AssignPersonActiveCounty('wood',10)">+10</button></td>
+				<td><button onclick="AssignPersonActiveCounty('wood',100)">+100</button></td>
+				<td><button onclick="AssignPersonActiveCounty('wood',1000)">+1000</button></td>
+			</tr>
+			<tr>
+				<td><img src="stone.jpg" height="50px" width="50px"/></td>
+				<td>Stone</td>
+				<td><span id="stone"></span></td>
+				<td><span id="assignedstone"></span></td>
+				
+				<td><button onclick="UnassignPersonActiveCounty('stone',1)">-1</button></td>
+				<td><button onclick="AssignPersonActiveCounty('stone',1)">+1</button></td>
+				<td><button onclick="AssignPersonActiveCounty('stone',5)">+5</button></td>
+				<td><button onclick="AssignPersonActiveCounty('stone',10)">+10</button></td>
+				<td><button onclick="AssignPersonActiveCounty('stone',100)">+100</button></td>
+				<td><button onclick="AssignPersonActiveCounty('stone',1000)">+1000</button></td>
+			</tr>
+			
+			<tr id="resourceIron" class="hidden">
+				<td>Iron</td>
+				<td><span id="iron"></span></td>
+				<td><span id="assignediron"></span></td>
+				
+				<td><button onclick="UnassignPersonActiveCounty('iron',1)">-1</button></td>
+				<td><button onclick="AssignPersonActiveCounty('iron',1)">+1</button></td>
+				<td><button onclick="AssignPersonActiveCounty('iron',5)">+5</button></td>
+				<td><button onclick="AssignPersonActiveCounty('iron',10)">+10</button></td>
+				<td><button onclick="AssignPersonActiveCounty('iron',100)">+100</button></td>
+				<td><button onclick="AssignPersonActiveCounty('iron',1000)">+1000</button></td>
+			</tr>
+			
+			<tr id="resourceBlacksmith" class="hidden">
+				<td>Blacksmith</td>
+				<td><span id="blacksmith"></span></td>
+				<td><span id="assignedblacksmith"></span></td>
+				
+				<td><button onclick="UnassignPersonActiveCounty('blacksmith',1)">-1</button></td>
+				<td><button onclick="AssignPersonActiveCounty('blacksmith',1)">+1</button></td>
+				<td><button onclick="AssignPersonActiveCounty('blacksmith',5)">+5</button></td>
+				<td><button onclick="AssignPersonActiveCounty('blacksmith',10)">+10</button></td>
+				<td><button onclick="AssignPersonActiveCounty('blacksmith',100)">+100</button></td>
+				<td><button onclick="AssignPersonActiveCounty('blacksmith',1000)">+1000</button></td>
+			</tr>
+			<tr id="resourceSword" class="hidden">
+				<td><img src="sword.jpg" height="50px" width="50px"/></td>
+				<td>Swords</td>
+				<td><span id="swords"></span></td>
+			</tr>
+		</table>
+	
+		<div id="Buildings">
+			<table>
+			
+			<tr><th>Building</th><th>Requirements</th><th># Built</th></tr>
+				<tr title="A very basic residential building. Has space for 5 people."><td>Hut</td><td>Wood: 10</td><td id="hutcount"></td><td><button onclick="BuildBuildingActiveCounty('hut',1)">+1</button></td><td><button onclick="BuildBuildingActiveCounty('hut',5)">+5</button></td></tr>
+				<tr title="A sturdy residential building. Has space for 20 people."><td>House</td><td>Wood: 30</td><td id="housecount"></td><td><button onclick="BuildBuildingActiveCounty('house',1)">+1</button></td><td><button onclick="BuildBuildingActiveCounty('house',5)">+5</button></td></tr>
+				<tr title="A wealthy residential building. Has space for 60 people." id="mansionrow" class="hidden"><td>Mansion</td><td>Wood: 75 Stone:10</td><td id="mansioncount"></td><td><button onclick="BuildBuildingActiveCounty('mansion',1)">+1</button></td><td><button onclick="BuildBuildingActiveCounty('mansion',5)">+5</button></td></tr>
+				<tr title="A small settlement with space fro 1k people." id="villagerow" class="hidden"><td>Village</td><td>Wood: 1150 Stone:200</td><td id="villagecount"></td><td><button onclick="BuildBuildingActiveCounty('village',1)">+1</button></td><td><button onclick="BuildBuildingActiveCounty('village',5)">+5</button></td></tr>
+				<tr title="A new town with space for 10k people" id="townrow" class="hidden"><td>Town</td><td>Wood: 11300 Stone: 1500 Iron:500</td><td id="towncount"></td><td><button onclick="BuildBuildingActiveCounty('town',1)">+1</button></td><td><button onclick="BuildBuildingActiveCounty('town',5)">+5</button></td></tr>
+				<tr title="Allows workers to mine iron. 100 workers per mine." id="ironminerow" class="hidden"><td>Iron Mine</td><td>20 wood 100 stone</td><td id="ironminecount"></td><td><button onclick="BuildBuildingActiveCounty('ironmine',1)">+1</button></td><td><button onclick="BuildBuildingActiveCounty('ironmine',5)">+5</button></td></tr>
+				<tr title="Allows the creation of weapons. 5 workers per blacksmith." id="blacksmithrow" class="hidden"><td>Blacksmith</td><td>20 wood 200 stone</td><td id="blacksmithcount"></td><td><button onclick="BuildBuildingActiveCounty('blacksmith',1)">+1</button></td><td><button onclick="BuildBuildingActiveCounty('blacksmith',5)">+5</button></td></tr>
+			</table>
+		</div>
+	
+		<div id="Armies" class="hidden">
+			<table>
+				<tr><th>Unit</th><th>Requirements</th><th>Amount</th></tr>
+				<tr id="soldierrow"><td>Soldier</td><td>1 sword</td><td id="soldiercount"></td>
+				<td><button onclick="RemoveArmyActiveCounty('soldier',1)">-1</button></td>
+				<td><button onclick="RemoveArmyActiveCounty('soldier',5)">-5</button></td>
+				<td><button onclick="RemoveArmyActiveCounty('soldier',10)">-10</button></td>
+				<td><button onclick="RemoveArmyActiveCounty('soldier',100)">-100</button></td><td><button onclick="CreateArmyActiveCounty('soldier',1)">+1</button></td>
+				<td><button onclick="CreateArmyActiveCounty('soldier',5)">+5</button></td>
+				<td><button onclick="CreateArmyActiveCounty('soldier',10)">+10</button></td>
+				<td><button onclick="CreateArmyActiveCounty('soldier',100)">+100</button></td></tr>
+			</table>
+		</div>
+		<div id="Footer">
+			<div id="image"></div>
+			<div id="notificationbox"><div class='Positive'>Welcome to Conquer Ireland</div></div>
+			<div id="advertisment"></div>
+		</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="GameController.js"></script>
+</html>
